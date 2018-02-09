@@ -18,10 +18,10 @@ mongoose.set('debug',config.db.DEBUG);
 mongoose.promise = require('bluebird');
 mongoose.connect (config.db.URL,{autoReconnect:true});
 mongoose.connection.on("connected",function (obj) {
-  console.log('connection is Successfully on ${config.db.URL}');
+  console.log(`connection is Successfully on ${config.db.URL}`);
    });
 mongoose.connection.on("error",function (error) {
-    console.log('connection is Failed !! Try Again due to ${error}');
+    console.log(`connection is Failed!!!! Try Again due to ${error}`);
 });
 
 

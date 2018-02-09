@@ -1,11 +1,12 @@
-"use strick";
+'use strict';
 
 const
     mongoose  = require('mongoose'),
     path = require('path'),
-    schema = mongoose.schema;
+    Schema = mongoose.Schema;
 
-Usermodel = new schema ({
+var Usermodel;
+Usermodel = new Schema ({
     name:{
         type:String,
     },
@@ -20,4 +21,5 @@ Usermodel = new schema ({
     }
 });
 
-mongoose.exports = mongoose.model('usermodel','Usermodel');
+module.exports = mongoose.model('Usermodel','Usermodel');
+
