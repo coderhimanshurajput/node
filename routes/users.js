@@ -3,11 +3,11 @@ const express  = require('express'),
     path = require('path'),
     expressJWT = require('express-jwt'),
     config = require(path.resolve('./config/mongoconfig')),
-    router = express.Router();
+    router = express.Router(),
+    mongoose = require('mongoose');
 
-    var mongoose = require('mongoose');
+ /*============ file system concat =====================*/
 
-// ============ file system concat =====================
 var ctrl = {};
 fs.readdirSync(path.resolve('/controllers/user')).forEach(file =>{
     console.log(file)
@@ -15,9 +15,8 @@ fs.readdirSync(path.resolve('/controllers/user')).forEach(file =>{
     ctrl[name] = require(path.resolve(`./controllers/user/${name}`));
 });
 
-
-
-//check for user authentication
+console.log('ctrl');
+/*check for user authentication*/
 
 router.use(expressJWT({
     secret:new Buffer(config.secret).toString('base64')
@@ -29,6 +28,9 @@ router.use(expressJWT({
 }));
 
 // console.log(ctrl);
+
 router.post('/userData',ctrl.user.userData);
+
+
 
 module.exports = router;
