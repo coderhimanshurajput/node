@@ -3,10 +3,10 @@
 const
     mongoose  = require('mongoose'),
     path = require('path'),
-    Schema = mongoose.Schema;
+   Schema = mongoose.Schema;
 
-var Usermodel;
-Usermodel = new Schema ({
+
+var UserModel = new Schema ({
     name:{
         type:String,
     },
@@ -21,5 +21,7 @@ Usermodel = new Schema ({
     }
 });
 
-module.exports = mongoose.model('Usermodel','Usermodel');
+var userData = mongoose.model('usermodel','UserModel');
+
+module.exports =userData;
 

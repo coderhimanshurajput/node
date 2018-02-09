@@ -7,7 +7,7 @@ const express  = require('express'),
     config = require(path.resolve('./config/mongoconfig')),
     router = express.Router(),
     mongoose = require('mongoose');
-
+var usermodel = mongoose.model('usermodel');
  /*============ file system concat =====================*/
 
 var ctrl = {};

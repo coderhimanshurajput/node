@@ -12,13 +12,15 @@ const
 
 exports.userSignupData = function (req, res, next)
 {
+    var dataBody =req.body;
+
     var hashedPassword = bcrypt.hashSync(req.body.password,8);
 
     UserCreate({
-        name : req.body.name,
-        email : req.body.email,
+        name : dataBody.name,
+        email : dataBody.email,
         password : hashedPassword,
-        address : req.body.address ,
+        address : dataBody.address ,
 
     },
         function (err, user) {
@@ -32,7 +34,7 @@ exports.userSignupData = function (req, res, next)
             }
         });
 
-         console.log("heloooo HImanhsu");
+         // console.log("heloooo HImanhsu");
  }
 
 module.exports = router;
