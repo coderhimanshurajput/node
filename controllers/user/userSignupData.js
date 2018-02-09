@@ -14,7 +14,7 @@ exports.userSignupData = function (req, res, next)
 {
     var dataBody =req.body;
 
-    var hashedPassword = bcrypt.hashSync(req.body.password,8);
+    var hashedPassword = bcrypt.hashSync(dataBody.password,8);
 
     UserCreate({
         name : dataBody.name,

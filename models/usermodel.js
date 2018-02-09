@@ -1,10 +1,8 @@
 'use strict';
 
-const
-    mongoose  = require('mongoose'),
-    path = require('path'),
-   Schema = mongoose.Schema;
-
+var mongoose  = require('mongoose');
+var path = require('path');
+var Schema = mongoose.Schema;
 
 var UserModel = new Schema ({
     name:{
