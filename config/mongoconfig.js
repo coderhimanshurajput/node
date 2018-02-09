@@ -1,5 +1,6 @@
-"use strick";
+'use strict';
 const path = require('path');
+
 const config = {
     db:{
         URL:'mongodb://localhost/user',
