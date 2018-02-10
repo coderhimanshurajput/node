@@ -1,40 +1,35 @@
 'use strict';
 
 const
-    path = require('path'),
-    async = require('async'),
-    _     =   require('lodash'),
-    mongoose = require('mongoose'),
-    config = require(path.resolve('./config/mongoconfig')),
-    userModel = require(path.resolve('./models/usermodel')),
-    express = require('express'),
-    router = express.Router();
+    path 	 	= require('path'),
+    async 	 	= require('async'),
+    _ 			= require('lodash'),
+    mongoose 	= require('mongoose'),
+    // md5  = require('md5'),
+    UserModel   = require(path.resolve(`./models/usermodel`));
 
-exports.userSignupData = function (req, res, next)
-{
-    var dataBody =req.body;
+exports.SaveData = function (req, res, next) {
+    var reqBody = req.body;
+     // var md5password = crypto.createHash('md5');
 
-    var hashedPassword = bcrypt.hashSync(dataBody.password,8);
+    var user = {
+        name : req.body.name,
+        email : reqBody.email,
+        password : reqBody.password,
+        address : reqBody.address,
+    };
+    console.log(user);
 
-    UserCreate({
-        name : dataBody.name,
-        email : dataBody.email,
-        password : hashedPassword,
-        address : dataBody.address ,
+    var usermodel = new UserModel(user);
 
-    },
-        function (err, user) {
-        if (err)
-        {
-            return req.status(500).send("There Was a Problem Registering the user.")
+    usermodel.save(function (err, saveObj) {
+
+        if(err){
+            res.json({obj:err,message:'unsuccess'});
+        } else {
+            res.json({obj:saveObj,message:'success'});
         }
-        else
-            {
-                req.status(200).send("Registration Successfully");
-            }
-        });
+    });
+}
 
-         // console.log("heloooo HImanhsu");
- }
-
-module.exports = router;
+// module.exports = SaveData;

@@ -7,7 +7,6 @@ const express  = require('express'),
     config = require(path.resolve('./config/mongoconfig')),
     router = express.Router(),
     mongoose = require('mongoose');
-var usermodel = mongoose.model('usermodel');
  /*============ file system concat =====================*/
 
 var ctrl = {};
@@ -20,6 +19,7 @@ fs.readdirSync(path.resolve('./controllers/user')).forEach(file =>{
 console.log(ctrl);
 /*check for user authentication*/
 
+/*
 router.use(expressJWT({
     secret:new Buffer(config.secret).toString('base64')
 }).unless({
@@ -27,9 +27,10 @@ router.use(expressJWT({
         'user/userSignupData'
     ]
 }));
+*/
 
 // console.log(ctrl);
 
-router.post('/userSignupData',ctrl.user.userSignupData);
+router.post('/SaveData',ctrl.userSignupData.SaveData);
 
 module.exports = router;

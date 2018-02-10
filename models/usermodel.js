@@ -2,9 +2,9 @@
 
 var mongoose  = require('mongoose');
 var path = require('path');
-var Schema = mongoose.Schema;
+var dataSchema = mongoose.Schema;
 
-var UserModel = new Schema ({
+var UserModel = new dataSchema ({
     name:{
         type:String,
     },
@@ -19,7 +19,7 @@ var UserModel = new Schema ({
     }
 });
 
-var userData = mongoose.model('usermodel','UserModel');
+var userData = mongoose.model('usermodel',UserModel);
 
 module.exports =userData;
 
