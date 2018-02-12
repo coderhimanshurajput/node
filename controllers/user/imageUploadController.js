@@ -4,7 +4,7 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 var multer = require('multer');
-var index = require('./views/index')
+// var index = require('./views/index')
 var upload  = multer({dest:'./public/upload/'});
 var app = express();
 

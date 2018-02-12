@@ -5,25 +5,40 @@ const
     async = require('async'),
     _  = require('lodash'),
     mongoose = require('mongoose'),
-    loginModel = require(path.resolve(`./models/loginModel`)),
+    userModel = require(path.resolve(`./models/usermodel.js`)),
     jwt = require('jwt-express');
+var crypto = require('crypto');
+var string = 'my string';
 
- // ====================  Create a login method ================================
+
+// ====================  Create a login method ================================
 
 exports.UserLogin = function (req, res, next) {
     var dataBody = req.body;
+    var hash = crypto.createHash('md5').update(string).digest('hex');
+
 
     var Login = {
         email : dataBody.email,
         password : dataBody.password
     };
-    var LoginModel = new loginModel(Login);
-    console.log(LoginModel);
+    //console.log(LoginModel);
 
- LoginModel.findOne({
+    userModel.findOne({
     email :dataBody.email,
  },function (err, user) {
-     if (err) throw err;
+        if(user){
+            if(user.password===dataBody.password){
+                res.json({message:'success'});
+            }else{
+                res.json({message:'wrong password'});
+            }
+        }else{
+            res.json({message:'user not found'});
+        }
+
+        console.log(user)
+    /* if (err) throw err;
      if(!user){
          res.json({success:false,message :'Authentication Failed. User not found.' });
      } else if(user){
@@ -48,7 +63,7 @@ exports.UserLogin = function (req, res, next) {
                  token : token
              });
          }
-     }
+     }*/
      });
 
 }
