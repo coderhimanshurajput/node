@@ -19,18 +19,17 @@ fs.readdirSync(path.resolve('./controllers/user')).forEach(file =>{
 console.log(ctrl);
 /*check for user authentication*/
 
-/*
-router.use(expressJWT({
+/*router.use(expressJWT({
     secret:new Buffer(config.secret).toString('base64')
 }).unless({
     path:[
         'user/userSignupData'
     ]
-}));
-*/
+}));*/
 
 // console.log(ctrl);
 
 router.post('/SaveData',ctrl.userSignupData.SaveData);
+router.post('/UserLogin',ctrl.loginController.UserLogin);
 
 module.exports = router;
