@@ -15,7 +15,6 @@ require('./models/loginModel');
 var app = express();
 var routes = require('./routes');
 
-
  // ===== = create mongodb Connection  ======
 
 mongoose.set('debug',config.db.DEBUG);
@@ -50,9 +49,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
-
 
 // error handler
 app.use(function(err, req, res, next) {
