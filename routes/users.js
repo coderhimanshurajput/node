@@ -5,9 +5,10 @@ const express  = require('express'),
     path = require('path'),
     expressJWT = require('express-jwt'),
     config = require(path.resolve('./config/mongoconfig')),
-    router = express.Router(),
-    mongoose = require('mongoose');
- /*============ file system concat =====================*/
+    router = express.Router();
+
+
+/*============ file system concat =====================*/
 
 var ctrl = {};
 fs.readdirSync(path.resolve('./controllers/user')).forEach(file =>{
@@ -17,10 +18,11 @@ fs.readdirSync(path.resolve('./controllers/user')).forEach(file =>{
 });
 
 console.log(ctrl);
+
 /*check for user authentication*/
 
 /*router.use(expressJWT({
-    secret:new Buffer(config.secret).toString('base64')
+    secret: new Buffer(config.secret).toString('base64')
 }).unless({
     path:[
         'user/userSignupData'
@@ -29,7 +31,10 @@ console.log(ctrl);
 
 // console.log(ctrl);
 
+
+/** @namespace ctrl.userSignupData */
 router.post('/SaveData',ctrl.userSignupData.SaveData);
+/** @namespace ctrl.loginController */
 router.post('/UserLogin',ctrl.loginController.UserLogin);
 
 module.exports = router;
