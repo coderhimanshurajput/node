@@ -36,5 +36,7 @@ console.log(ctrl);
 router.post('/SaveData',ctrl.userSignupData.SaveData);
 /** @namespace ctrl.loginController */
 router.post('/UserLogin',ctrl.loginController.UserLogin);
+/** @namespace ctrl.imageUploadController */
+router.post('/imageUpload',ctrl.imageUploadController.imageUpload);
 
 module.exports = router;

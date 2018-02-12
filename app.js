@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var index = require('./routes/index');
+var index  = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./config/mongoconfig');
 require('./models/usermodel');
@@ -14,6 +14,7 @@ require('./models/loginModel');
 
 var app = express();
 var routes = require('./routes');
+
 
  // ===== = create mongodb Connection  ======
 
@@ -49,6 +50,9 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
+
 
 // error handler
 app.use(function(err, req, res, next) {

@@ -8,6 +8,7 @@ const
     loginModel = require(path.resolve(`./models/loginModel`)),
     jwt = require('jwt-express');
 
+ // ====================  Create a login method ================================
 
 exports.UserLogin = function (req, res, next) {
     var dataBody = req.body;
@@ -30,7 +31,7 @@ exports.UserLogin = function (req, res, next) {
              req.json({success:false,message:'Authentication Failed.Wrong Password'});
          }else {
 
-             // create a token with only our given with payload
+// ====================== create a token with only our given with payload  ==============================
 
              const payload = {
                   admin: user.admin
@@ -39,7 +40,8 @@ exports.UserLogin = function (req, res, next) {
                  expiresInMinutes: 1440 // expires in 24 hours
              });
 
-             // return  information including with token as JSON
+// =====================  return  information including with token as JSON ===============================
+
              res.json({
                  success : true,
                  message : 'Login Successfully !! Welcome Back ',
