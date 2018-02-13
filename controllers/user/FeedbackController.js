@@ -16,6 +16,7 @@ exports.FeedBD = function (req,res, next) {
         textfield : req.body.textfield
     }
     console.log('FeedFiled');
+
     var FeedNewObj = new FeedBackModel(FeedFiled);
 
     FeedNewObj.save(function (err, saveObj) {

@@ -22,3 +22,5 @@ exports.MedicalDetIns = function (req, res, next ) {
 }
 
 
+
+

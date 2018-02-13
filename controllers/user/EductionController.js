@@ -7,6 +7,7 @@ const
     mongoose 	= require('mongoose');
 var EduDetails = require(path.resolve(`./models/eductionModel`));
 
+
 exports.EduDetailsInsert = function (req, res, next) {
 
    let body = req.body;

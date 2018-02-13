@@ -23,5 +23,6 @@ var FeedBack = new dataSchema({
 
 });
 
+
 var FeedModel = mongoose.model('FeedbackModel',FeedBack);
 module.exports = FeedModel;

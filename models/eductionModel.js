@@ -15,6 +15,7 @@ var EduDetails = new dataSchema ({
     }
 });
 
+
 var EduDetailsIn = mongoose.model('eductionModel',EduDetails);
 module.exports = EduDetailsIn;
 

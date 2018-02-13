@@ -16,3 +16,4 @@ var MedDet = new dataSchema({
 
 var MedDetIN = mongoose.model('medicalModel',MedDet);
 module.exports = MedDetIN;
+

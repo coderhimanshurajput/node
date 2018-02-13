@@ -17,6 +17,8 @@ var SocialDet = new dataSchema ({
 
 });
 
+
+
 var socDet  = mongoose.model('SocialModel',SocialDet);
 
 module.exports = socDet;
