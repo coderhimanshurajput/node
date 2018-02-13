@@ -4,9 +4,9 @@ const
     path 	 	= require('path'),
     async 	 	= require('async'),
     _ 			= require('lodash'),
-    mongoose 	= require('mongoose'),
-    // md5  = require('md5'),
-    // crypto = require('crypto'),
+    mongoose 	= require('mongoose');
+    var md5  = require('md5');
+  var crypto = require('crypto'),
 
     UserModel   = require(path.resolve(`./models/usermodel`));
 
@@ -14,8 +14,9 @@ exports.SaveData = function (req, res, next) {
 
     var Body = req.body;
 
-    // var hashMd5 = crypto.createHash('md5').update(salt + password).digest("hex");
+  // var hashmd5 = crypto.createHash('md5').update(data).digest('hex');
 
+   console.log('hashmd5');
     var user = {
         name : Body.name,
         mobile : Body.mobile,
@@ -38,4 +39,4 @@ exports.SaveData = function (req, res, next) {
     });
 }
 
-// module.exports = SaveData;
+
